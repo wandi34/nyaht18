@@ -1,0 +1,25 @@
+{
+  "name": "nyaht18",
+  "version": "1.0.0",
+  "description": "Project for metachain",
+  "main": "index.js",
+  "dependencies": {
+    "scramjet": "^4.18.16",
+    "serialport": "^7.0.2",
+    "web3": "^1.0.0-beta.36"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wandi34/nyaht18.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wandi34/nyaht18/issues"
+  },
+  "homepage": "https://github.com/wandi34/nyaht18#readme"
+}
