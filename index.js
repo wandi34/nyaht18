@@ -6,7 +6,7 @@ const SerialPort = require("serialport")
 var serialport = new SerialPort('/dev/tty.usbmodem1421', {
   baudRate: 9600
 });
-const {StringStream} = require('scramjet');
+
 const Readline = SerialPort.parsers.Readline;
 
 const parser = new Readline({delimiter: '\n'});
