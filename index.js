@@ -8,7 +8,7 @@ var cors = require('cors')
 var app = require('express')
 
 const SerialPort = require("serialport")
-const serialport = new SerialPort('/dev/tty.usbmodem1421', {
+const serialport = new SerialPort('/dev/cu.usbmodem144401', {
   baudRate: 9600
 });
 
@@ -38,6 +38,24 @@ const HelloContract = new web3.eth.Contract([
   }
 ], '0x5c1a091f00ccaf8d3dfe54adce98098fee97820f');
 
+const parser = new Readline({delimiter: '\n'});
+serialport.pipe(parser);
+
+console.log('parser setup');
+
+var rain = false;
+
+parser.on('data', function(data) {
+  console.log('data received: ', data);
+  if(data) {
+    rain = false;
+  } else {
+    rain = true;
+  }
+});
+
+
+
 web3.eth.getAccounts().then((response) => {
   web3.eth.defaultAccount = response[0];
   console.log("awi default account: ", web3.eth.defaultAccount);
@@ -49,15 +67,8 @@ web3.eth.getAccounts().then((response) => {
 
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end(JSON.stringify(true));
+  res.end(JSON.stringify(rain));
+  console.log(rain);
 }).listen(3001);
 
 
-// const parser = new Readline({delimiter: '\n'});
-// serialport.pipe(parser);
-
-// console.log('parser setup');
-
-// parser.on('data', function(data) {
-//   console.log('data received: ', data);
-// });
