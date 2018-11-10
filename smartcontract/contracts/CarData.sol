@@ -3,6 +3,14 @@ pragma solidity ^0.4.23;
 contract CarData {
     address owner;
 
+    struct RequestData {
+        // mapping from timestamp to hash
+        mapping(uint8 => uint8) hashing;
+        address owner;
+        bool initialized;
+    }
+
+    mapping (string => RequestData) hashMapping;
     mapping (uint8 => uint8) data;
     constructor () public {
     }
@@ -25,4 +33,10 @@ contract CarData {
     function getWeatherForGeolocation(uint8 _geolocation) view returns (uint8) {
         return data[_geolocation];
     }
+
+    function getLastTimeStamp(uint8 _geolocation) view returns (uint8) {
+        
+    }
+
+    function getLastOwnerOfTimeStamp (uint8 _timeStamp) view returns (uint)
 }
