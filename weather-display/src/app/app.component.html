@@ -1,5 +1,6 @@
 <div class="background">
-  <img *ngIf="rain" src="../assets/car.gif" width="1000px">
-  <img *ngIf="!rain" src="../assets/sunny.jpg" width="1000px">
+  <img *ngIf="start" src="../assets/logo.png" width="1000px">
+  <img *ngIf="rain && !start" src="../assets/car.gif" width="1000px">
+  <img *ngIf="!rain && !start" src="../assets/sunny.jpg" width="1000px">
 </div>
 

@@ -9,8 +9,12 @@ import {RainService} from './rain.service';
 export class AppComponent {
   title = 'app';
   rain = false;
+  start = true;
 
   constructor(private rainService: RainService) {
+    window.setInterval(() => {
+      this.start = false;
+    }, 7000)
 
     window.setInterval(() => {
       this.rainService.getWeather().subscribe((weather) => {
